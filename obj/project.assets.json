@@ -5411,11 +5411,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Каса\\Desktop\\krisi\\exersises\\CI CD\\PortfolioCiCdDotNet8\\PortfolioCiCdDotNet8.csproj",
+      "projectUniqueName": "C:\\Users\\Каса\\Desktop\\krisi\\exersises\\CI CD\\PortfolioCiCdDotNet8.csproj",
       "projectName": "PortfolioCiCdDotNet8",
-      "projectPath": "C:\\Users\\Каса\\Desktop\\krisi\\exersises\\CI CD\\PortfolioCiCdDotNet8\\PortfolioCiCdDotNet8.csproj",
+      "projectPath": "C:\\Users\\Каса\\Desktop\\krisi\\exersises\\CI CD\\PortfolioCiCdDotNet8.csproj",
       "packagesPath": "C:\\Users\\Каса\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Каса\\Desktop\\krisi\\exersises\\CI CD\\PortfolioCiCdDotNet8\\obj\\",
+      "outputPath": "C:\\Users\\Каса\\Desktop\\krisi\\exersises\\CI CD\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
