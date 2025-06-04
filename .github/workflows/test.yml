@@ -26,6 +26,12 @@ jobs:
           name:  test-screenshots-${{ github.run_id }}
           path: screenshots
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: selenium-test-${{ github.run_id }}
+          path: test-results/
+
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
@@ -56,6 +62,12 @@ jobs:
         with:
           name:  test-screenshots-${{ github.run_id }}
           path:  screenshots/
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: selenium-test-${{ github.run_id }}
+          path: test-results/
 
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
