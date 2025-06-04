@@ -48,5 +48,3 @@ jobs:
         with:
           name:  test-screenshots
           path:  screenshots/
-       
-     

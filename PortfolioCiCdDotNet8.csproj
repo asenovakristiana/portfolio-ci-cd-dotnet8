@@ -13,4 +13,8 @@
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include=".github\workflows\test.yml" />
+  </ItemGroup>
+
 </Project>
