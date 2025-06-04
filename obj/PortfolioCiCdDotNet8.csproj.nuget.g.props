@@ -16,11 +16,12 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props')" />
     <Import Project="$(NuGetPackageRoot)specflow.plus.livingdocplugin\3.9.57\build\SpecFlow.Plus.LivingDocPlugin.props" Condition="Exists('$(NuGetPackageRoot)specflow.plus.livingdocplugin\3.9.57\build\SpecFlow.Plus.LivingDocPlugin.props')" />
-    <Import Project="$(NuGetPackageRoot)nunit\3.13.1\build\NUnit.props" Condition="Exists('$(NuGetPackageRoot)nunit\3.13.1\build\NUnit.props')" />
+    <Import Project="$(NuGetPackageRoot)nunit\4.3.2\build\NUnit.props" Condition="Exists('$(NuGetPackageRoot)nunit\4.3.2\build\NUnit.props')" />
     <Import Project="$(NuGetPackageRoot)specflow.nunit\3.9.74\build\SpecFlow.NUnit.props" Condition="Exists('$(NuGetPackageRoot)specflow.nunit\3.9.74\build\SpecFlow.NUnit.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Каса\.nuget\packages\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
     <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\Каса\.nuget\packages\bodi\1.5.0</PkgBoDi>
+    <PkgNUnitLite Condition=" '$(PkgNUnitLite)' == '' ">C:\Users\Каса\.nuget\packages\nunitlite\4.3.2</PkgNUnitLite>
   </PropertyGroup>
 </Project>

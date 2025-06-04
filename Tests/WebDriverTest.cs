@@ -1,6 +1,8 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
+using System;
+using System.IO;
 
 [TestFixture]
 public class WebDriverTest
@@ -11,15 +13,41 @@ public class WebDriverTest
     public void StartBrowser()
     {
         driver = new ChromeDriver();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         driver.Navigate().GoToUrl("https://www.example.com");
     }
 
     [Test]
     public void TestSearchBox()
     {
-        IWebElement searchBox = driver.FindElement(By.Name("q"));
-        searchBox.SendKeys("Selenium WebDriver");
-        searchBox.Submit();
+        try
+        {
+            IWebElement searchBox = driver.FindElement(By.Name("q"));
+            searchBox.SendKeys("Selenium WebDriver");
+            searchBox.Submit();
+
+            TakeScreenshot("search-box");
+        }
+        catch (NoSuchElementException)
+        {
+            Console.WriteLine("SB not found");
+            TakeScreenshot("error-search-box");
+            Assert.Fail("SB not found");
+        }
+    }
+
+    public void TakeScreenshot(string fileName)
+    {
+        try
+        {
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            Directory.CreateDirectory("screenshots");
+            screenshot.SaveAsFile($"screenshots/{fileName}.png");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error taking screenshot: {ex.Message}");
+        }
     }
 
     [TearDown]
