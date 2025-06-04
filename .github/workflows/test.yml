@@ -23,7 +23,7 @@ jobs:
       - name:  Upload Screenshots
         uses:  actions/upload-artifact@v4
         with:
-          name:  test-screenshots -${{ github.run_id }}
+          name:  test-screenshots-${{ github.run_id }}
           path: screenshots
 
   windows-test:
@@ -46,5 +46,5 @@ jobs:
       - name:  Upload Screenshots
         uses:  actions/upload-artifact@v4
         with:
-          name:  test-screenshots -${{ github.run_id }}
+          name:  test-screenshots-${{ github.run_id }}
           path:  screenshots/
