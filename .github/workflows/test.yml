@@ -32,6 +32,11 @@ jobs:
           name: selenium-test-${{ github.run_id }}
           path: test-results/
 
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
         with:
@@ -68,6 +73,11 @@ jobs:
         with:
           name: selenium-test-${{ github.run_id }}
           path: test-results/
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v2
