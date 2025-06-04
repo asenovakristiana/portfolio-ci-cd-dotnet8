@@ -11,10 +11,10 @@ Scenario: Successful Login
 
 Scenario: Unsuccessfull login with incorrect password
   Given the user is on the login page
-  when the user enters an incorrect password
+  When the user enters an incorrect password
   Then the user should see an error message
 
 Scenario: Login without entering credentials
   Given the user is on login page
-  Whenthe user clicks the login button without entering data
+  When the user clicks the login button without entering data
   Then the user should see a warning about empty fields
