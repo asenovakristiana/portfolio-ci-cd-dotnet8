@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PortfolioCiCdDotNet8")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a8827297393f1ff60b18f4b2cb747d859d50cbb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb0d152ad0fe197ffbe74a248c739da10f471fd1")]
 [assembly: System.Reflection.AssemblyProductAttribute("PortfolioCiCdDotNet8")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PortfolioCiCdDotNet8")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
