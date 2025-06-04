@@ -66,13 +66,13 @@ jobs:
       - name:  Upload Screenshots
         uses:  actions/upload-artifact@v4
         with:
-          name:  test-screenshots-${{ github.run_id }}
+          name:  windows-test-screenshots-${{ github.run_id }}
           path:  screenshots/
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: selenium-test-${{ github.run_id }}
+          name: windows-selenium-test-${{ github.run_id }}
           path: test-results/
 
       - name: Login to Azure
