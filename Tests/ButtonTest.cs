@@ -3,37 +3,41 @@ using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 using System.IO;
 
-[TestFixture]
-public class Buttontest
+namespace PortfolioCiCdDotNet8.Tests
 {
-    private IWebDriver driver;
-
-    [SetUp]
-    public void Startbrowser()
+    [TestFixture]
+    public class Buttontest
     {
-        driver = new ChromeDriver();
-    }
+        private ChromeDriver? driver;
 
-    [Test]
-    public void TestSignUpButton()
-    {
-        driver.Navigate().GoToUrl("https://www.example.com");
-        IWebElement signUpButton = driver.FindElement(By.Id("signUp"));
 
-        Assert.That(signUpButton.Displayed, Is.True);
-        TakeScreenshot("button-clicked");
-    }
+        [SetUp]
+        public void Startbrowser()
+        {
+            driver = new ChromeDriver();
+        }
 
-    public void TakeScreenshot(string fileName)
-    {
-        Screenshot screenshot =((ITakesScreenshot)driver).GetScreenshot();
-        Directory.CreateDirectory("screenshots");
-        screenshot.SaveAsFile($"screenshots/{fileName}.png");
-    }
+        [Test]
+        public void TestSignUpButton()
+        {
+            driver!.Navigate().GoToUrl("https://www.example.com");
+            IWebElement signUpButton = driver.FindElement(By.Id("signUp"));
 
-    [TearDown]
-    public void CloseBrowser()
-    {
-        driver.Quit();
+            Assert.That(signUpButton.Displayed, Is.True);
+            TakeScreenshot("button-clicked");
+        }
+
+        public void TakeScreenshot(string fileName)
+        {
+            Screenshot screenshot = ((ITakesScreenshot)driver!).GetScreenshot();
+            Directory.CreateDirectory("screenshots");
+            screenshot.SaveAsFile($"screenshots/{fileName}.png");
+        }
+
+        [TearDown]
+        public void CloseBrowser()
+        {
+            driver!.Quit();
+        }
     }
 }

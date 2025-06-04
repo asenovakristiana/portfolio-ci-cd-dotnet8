@@ -4,55 +4,58 @@ using NUnit.Framework;
 using System;
 using System.IO;
 
-[TestFixture]
-public class WebDriverTest
+namespace PortfolioCiCdDotNet8.Tests
 {
-    IWebDriver driver;
-
-    [SetUp]
-    public void StartBrowser()
+    [TestFixture]
+    public class WebDriverTest
     {
-        driver = new ChromeDriver();
-        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-        driver.Navigate().GoToUrl("https://www.example.com");
-    }
+        ChromeDriver? driver;
 
-    [Test]
-    public void TestSearchBox()
-    {
-        try
+        [SetUp]
+        public void StartBrowser()
         {
-            IWebElement searchBox = driver.FindElement(By.Name("q"));
-            searchBox.SendKeys("Selenium WebDriver");
-            searchBox.Submit();
+            driver = new ChromeDriver();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Navigate().GoToUrl("https://www.example.com");
+        }
 
-            TakeScreenshot("search-box");
-        }
-        catch (NoSuchElementException)
+        [Test]
+        public void TestSearchBox()
         {
-            Console.WriteLine("SB not found");
-            TakeScreenshot("error-search-box");
-            Assert.Fail("SB not found");
-        }
-    }
+            try
+            {
+                IWebElement searchBox = driver!.FindElement(By.Name("q"));
+                searchBox.SendKeys("Selenium WebDriver");
+                searchBox.Submit();
 
-    public void TakeScreenshot(string fileName)
-    {
-        try
-        {
-            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-            Directory.CreateDirectory("screenshots");
-            screenshot.SaveAsFile($"screenshots/{fileName}.png");
+                TakeScreenshot("search-box");
+            }
+            catch (NoSuchElementException)
+            {
+                Console.WriteLine("SB not found");
+                TakeScreenshot("error-search-box");
+                Assert.Fail("SB not found");
+            }
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error taking screenshot: {ex.Message}");
-        }
-    }
 
-    [TearDown]
-    public void CloseBrowser()
-    {
-        driver.Quit();
+        public void TakeScreenshot(string fileName)
+        {
+            try
+            {
+                Screenshot screenshot = ((ITakesScreenshot)driver!).GetScreenshot();
+                Directory.CreateDirectory("screenshots");
+                screenshot.SaveAsFile($"screenshots/{fileName}.png");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error taking screenshot: {ex.Message}");
+            }
+        }
+
+        [TearDown]
+        public void CloseBrowser()
+        {
+            driver!.Quit();
+        }
     }
 }

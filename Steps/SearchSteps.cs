@@ -4,44 +4,47 @@ using NUnit.Framework;
 using System.IO;
 using OpenQA.Selenium.Chrome;
 
-[Binding]
-public class SearchSteps
+namespace PortfolioCiCdDotNet8.Steps
 {
-    private readonly IWebDriver driver;
-
-    public SearchSteps()
+    [Binding]
+    public class SearchSteps
     {
-        driver = new ChromeDriver();
-    }
+        private readonly ChromeDriver driver;
 
-    [Given("the user is on the homepage")]
-    public void GivenUserIsOnHomePage()
-    {
-        driver.Navigate().GoToUrl("https://www.example.com");
-        TakeScreenshot("home-page");
-    }
+        public SearchSteps()
+        {
+            driver = new ChromeDriver();
+        }
 
-    [When("the user enters a search query")]
-    public void WhenUserEntersSearchQuery()
-    {
-        var searchBox = driver.FindElement(By.Name("q"));
-        searchBox.SendKeys("specFlow Testing");
-        searchBox.Submit();
-        TakeScreenshot("search-input");
-    }
+        [Given("the user is on the homepage")]
+        public void GivenUserIsOnHomePage()
+        {
+            driver.Navigate().GoToUrl("https://www.example.com");
+            TakeScreenshot("home-page");
+        }
 
-    [Then("the results should contain the expected value")]
-    public void ThenResultsShouldContainExpectedValue()
-    {
-        Assert.That(driver.PageSource.Contains("Expected Result"), Is.True);
-        TakeScreenshot("search-success");
-        driver.Quit();
-    }
+        [When("the user enters a search query")]
+        public void WhenUserEntersSearchQuery()
+        {
+            var searchBox = driver.FindElement(By.Name("q"));
+            searchBox.SendKeys("specFlow Testing");
+            searchBox.Submit();
+            TakeScreenshot("search-input");
+        }
 
-    private void TakeScreenshot(string fileName)
-    {
-        Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-        Directory.CreateDirectory("screenshots");
-        screenshot.SaveAsFile($"screenshots/{fileName}.png");
+        [Then("the results should contain the expected value")]
+        public void ThenResultsShouldContainExpectedValue()
+        {
+            Assert.That(driver.PageSource.Contains("Expected Result"), Is.True);
+            TakeScreenshot("search-success");
+            driver.Quit();
+        }
+
+        private void TakeScreenshot(string fileName)
+        {
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            Directory.CreateDirectory("screenshots");
+            screenshot.SaveAsFile($"screenshots/{fileName}.png");
+        }
     }
 }

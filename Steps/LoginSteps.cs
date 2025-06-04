@@ -8,9 +8,10 @@ namespace PortfolioCiCdDotNet8.Steps
 {
     public class LoginSteps
     {
-        private readonly IWebDriver driver;
+        private readonly ChromeDriver driver;
 
         public LoginSteps()
+#pragma warning restore IDE0079 // Remove unnecessary suppression
         {
             driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);

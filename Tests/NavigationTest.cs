@@ -3,35 +3,38 @@ using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 using System.IO;
 
-[TestFixture]
-public class NavigationTest
+namespace PortfolioCiCdDotNet8.Tests
 {
-    private IWebDriver driver;
-
-    [SetUp]
-    public void StartBrowser()
+    [TestFixture]
+    public class NavigationTest
     {
-        driver = new ChromeDriver();
-    }
+        private ChromeDriver? driver;
 
-    [Test]
-    public void TestHomePageLoads()
-    {
-        driver.Navigate().GoToUrl("https:/www.example.com");
-        Assert.That(driver.Title, Is.EqualTo("Example Domain"));
-        TakeScreenshot("homepage-load");
-    }
+        [SetUp]
+        public void StartBrowser()
+        {
+            driver = new ChromeDriver();
+        }
 
-    public void TakeScreenshot(string fileName)
-    {
-        Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-        Directory.CreateDirectory("screenshots");
-        screenshot.SaveAsFile($"screenshots/{fileName}.png");
-    }
+        [Test]
+        public void TestHomePageLoads()
+        {
+            driver!.Navigate().GoToUrl("https:/www.example.com");
+            Assert.That(driver.Title, Is.EqualTo("Example Domain"));
+            TakeScreenshot("homepage-load");
+        }
 
-    [TearDown]
-    public void CloseBrowser()
-    {
-        driver.Quit();
+        public void TakeScreenshot(string fileName)
+        {
+            Screenshot screenshot = ((ITakesScreenshot)driver!).GetScreenshot();
+            Directory.CreateDirectory("screenshots");
+            screenshot.SaveAsFile($"screenshots/{fileName}.png");
+        }
+
+        [TearDown]
+        public void CloseBrowser()
+        {
+            driver!.Quit();
+        }
     }
 }

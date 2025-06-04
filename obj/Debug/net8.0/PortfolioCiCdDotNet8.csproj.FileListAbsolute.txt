@@ -69,3 +69,5 @@ C:\Users\Каса\Desktop\krisi\exersises\CI CD\obj\Debug\net8.0\refint\Portfoli
 C:\Users\Каса\Desktop\krisi\exersises\CI CD\obj\Debug\net8.0\PortfolioCiCdDotNet8.pdb
 C:\Users\Каса\Desktop\krisi\exersises\CI CD\obj\Debug\net8.0\PortfolioCiCdDotNet8.genruntimeconfig.cache
 C:\Users\Каса\Desktop\krisi\exersises\CI CD\obj\Debug\net8.0\ref\PortfolioCiCdDotNet8.dll
+C:\Users\Каса\Desktop\krisi\exersises\CI CD\bin\Debug\net8.0\nunit.framework.legacy.dll
+C:\Users\Каса\Desktop\krisi\exersises\CI CD\bin\Debug\net8.0\nunitlite.dll
